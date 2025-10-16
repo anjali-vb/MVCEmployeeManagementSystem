@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\CampFivepointtwo\\EMSv2025or\\EmployeeManagementSystem-main\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{272AE74A-7509-F966-02CB-652D86ADFA5A}|EmployeeManagementSystem2025.csproj|c:\\campfivepointtwo\\emsv2025or\\employeemanagementsystem-main\\repositories\\employeerepositoryimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{272AE74A-7509-F966-02CB-652D86ADFA5A}|EmployeeManagementSystem2025.csproj|solutionrelative:repositories\\employeerepositoryimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{272AE74A-7509-F966-02CB-652D86ADFA5A}|EmployeeManagementSystem2025.csproj|c:\\campfivepointtwo\\emsv2025or\\employeemanagementsystem-main\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{272AE74A-7509-F966-02CB-652D86ADFA5A}|EmployeeManagementSystem2025.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -23,12 +27,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "EmployeeRepositoryImpl.cs",
+              "DocumentMoniker": "C:\\CampFivepointtwo\\EMSv2025or\\EmployeeManagementSystem-main\\Repositories\\EmployeeRepositoryImpl.cs",
+              "RelativeDocumentMoniker": "Repositories\\EmployeeRepositoryImpl.cs",
+              "ToolTip": "C:\\CampFivepointtwo\\EMSv2025or\\EmployeeManagementSystem-main\\Repositories\\EmployeeRepositoryImpl.cs",
+              "RelativeToolTip": "Repositories\\EmployeeRepositoryImpl.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-16T15:36:59.167Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\CampFivepointtwo\\EMSv2025or\\EmployeeManagementSystem-main\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\CampFivepointtwo\\EMSv2025or\\EmployeeManagementSystem-main\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-13T01:31:28.917Z",
               "EditorCaption": ""

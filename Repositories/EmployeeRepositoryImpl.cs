@@ -7,6 +7,7 @@ namespace EmployeeManagementSystem2025.Repositories
     {
         private readonly string connectionString;
 
+        //constructor
         public EmployeeRepositoryImpl(IConfiguration configuration)
         {
             connectionString = configuration.GetConnectionString("MVCConnectionString");
