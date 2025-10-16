@@ -1,0 +1,266 @@
+﻿@model IEnumerable<EmployeeManagementSystem2025.Models.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+    var dummy = new EmployeeManagementSystem2025.Models.Employee();
+}
+
+<h1>Index</h1>
+
+
+<div class="container" mt=3">
+    <div class="d-flex align-items-center">
+        <!---Add Employee--->
+        <button type="button" class="btn btn-secondary me-2"
+                data-bs-toggle="modal"
+                data-bs-target="#createEmployeeModal">
+            Add Employee or Create New
+        </button>
+
+        <!---Search Employee--->
+        <input type="text" id="searchInput" class="form-control me-2"
+               placeholder="Enter Name"
+               style="width: auto; flex-grow: 1;">
+        <button id="searchButton" class="btn btn-primary">Search</button>
+    </div>
+
+</div>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => dummy.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => dummy.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => dummy.Designation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => dummy.Salary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => dummy.DOB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => dummy.DepartmentId)
+                Department
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => dummy.IsActive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => dummy.Gender)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Designation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Salary)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DOB)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DepartmentId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsActive)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!---modal--->
+<div class="modal fade" id="createEmployeeModal" tabindex="-1"
+     aria-labeledby="exampleModalLabel" aria-hidden="true"
+     data-bs-backdrop="static" data-bs-keyboard="false">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Create Employee</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="createEmployeeForm" asp-action="Create">
+
+                    <!-- Validation summary -->
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <!-- Name -->
+                    <div class="form-group">
+                        <label>Name <span class="text-danger">*</span></label>
+                        <input class="form-control" id="name" autocomplete="off" />
+                        <span id="nameError" class="text-danger"></span>
+                    </div>
+
+                    <!-- Designation -->
+                    <div class="form-group">
+                        <label>Designation <span class="text-danger">*</span></label>
+                        <input  class="form-control" id="designation" autocomplete="off" />
+                        <span id="designationError" class="text-danger"></span>
+                    </div>
+
+                    <!-- Salary -->
+                    <div class="form-group">
+                        <label>Salary  <span class="text-danger">*</span></label>
+                        <input  class="form-control" id="salary" type="number" autocomplete="off" />
+                        <span id="salaryError" class="text-danger"></span>
+                    </div>
+
+                    <!-- Gender -->
+                    <div class="form-group">
+                        <label> Gender <span class="text-danger">*</span></label>
+                        <div>
+                            <input type="radio" name="Gender" id="genderMale" value="Male" /> <label for="genderMale">Male</label>
+                            <input type="radio" name="Gender" id="genderFemale" value="Female" /> <label for="genderFemale">Female</label>
+                        </div>
+                        <span id="genderError" class="text-danger"></span>
+                    </div>
+
+                    <!-- DOB -->
+                    <div class="form-group">
+                        <label> DOB <span class="text-danger">*</span></label>
+                        <input class="form-control" id="dob" type="date" autocomplete="off" />
+                        <span id="dobError" class="text-danger"></span>
+                    </div>
+
+                    <!-- Department -->
+                    <div class="form-group">
+                        <label>Department <span class="text-danger">*</span></label>
+                        <select id="departmentList" name="DepartmentId" class="form-control">
+                            <option value="">Select Department</option>
+                            @foreach (var department in ViewBag.Departments)
+                            {
+                                <option value="@department.DepartmentId">@department.DepartmentName</option>
+                            }
+                        </select>
+                        <span id="departmentError" class="text-danger"></span>
+                    </div>
+
+                    <!-- IsActive -->
+                    <div class="form-group form-check">
+                        <input type="checkbox" id="IsActive" name="IsActive" class="form-check-input" />
+                        <label for="IsActive" class="form-check-label">Is Active</label>
+                    </div>
+
+                   </form>
+            </div>
+            <!--footer-->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                    Close
+                </button>
+                <button type="button" id="btnSave" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("#btnSave").click(function (event) {
+                event.preventDefault();
+
+                // Clear previous errors
+                $(".form-control").removeClass("input-error");
+                $("span.text-danger").text("");
+
+                // Gather inputs
+                var hasError = false;
+                var name = $("#name").val().trim();
+                var designation = $("#designation").val().trim();
+                var gender = $("input[name='Gender']:checked").val();
+                var salary = $("#salary").val().trim();
+                var dob = $("#dob").val().trim();
+                var departmentId = $("#departmentList").val();
+
+                // Validation
+                if (!name) {
+                    $("#nameError").text("Name is required.");
+                    hasError = true;
+                }
+                if (!gender) {
+                    $("#genderError").text("Gender is required.");
+                    hasError = true;
+                }
+                if (!designation) {
+                    $("#designationError").text("Designation is required.");
+                    hasError = true;
+                }
+                if (!salary || parseFloat(salary) <= 0) {
+                    $("#salaryError").text("Enter a valid salary.");
+                    hasError = true;
+                }
+                if (!dob) {
+                    $("#dobError").text("Date of Birth is required.");
+                    hasError = true;
+                }
+                if (!departmentId) {
+                    $("#departmentError").text("Select a department.");
+                    hasError = true;
+                }
+
+                if (hasError) return;
+
+                // Data object
+                var formData = {
+                    Name: name,
+                    Designation: designation,
+                    Gender: gender,
+                    Salary: salary,
+                    DOB: dob,
+                    DepartmentId: departmentId,
+                    IsActive: $("#IsActive").is(":checked")
+                };
+
+                // AJAX call
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Create", "Employees")',
+                    data: formData,
+                    success: function () {
+                        $('#createEmployeeModal').modal('hide');
+                        location.reload();
+                    },
+                    error: function () {
+                        alert("Error adding employee.");
+                    }
+                });
+            });
+        });
+    </script>
+}

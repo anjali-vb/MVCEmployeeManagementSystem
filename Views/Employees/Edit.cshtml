@@ -1,0 +1,111 @@
+﻿@model Employee
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h4>Edit And Update Employee</h4>
+<div class="row">
+    <div class="col-md-12">
+        <form id="editEmployeeForm" asp-action="Edit">
+
+            <!-- Validation summary -->
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!----Id--->
+                <div class="form-group">
+                    <label asp-for="Id" class="control-label">Reg No</label>
+                    <input asp-for="Id" class="form-control" id="id" readonly />
+                </div>
+
+            <!-- Name -->
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Name <span class="text-danger">*</span></label>
+                <input asp-for="Name" class="form-control" id="name" autocomplete="off" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <!-- Designation -->
+            <div class="form-group">
+                <label asp-for="Designation" class="control-label">Designation <span class="text-danger">*</span></label>
+                <input asp-for="Designation" class="form-control" id="designation" autocomplete="off" />
+                <span asp-validation-for="Designation" class="text-danger"></span>
+            </div>
+
+            <!-- Salary -->
+            <div class="form-group">
+                <label asp-for="Salary" class="control-label">Salary <span class="text-danger">*</span></label>
+                <input asp-for="Salary" class="form-control" id="salary" type="number" autocomplete="off" />
+                <span asp-validation-for="Salary" class="text-danger"></span>
+            </div>
+
+            <!-- Gender -->
+            <div class="form-group">
+                <label asp-for="Gender" class="control-label">Gender <span class="text-danger">*</span></label>
+                <div>
+                    <input type="radio" asp-for="Gender" id="genderMale" value="Male" /> <label for="genderMale">Male</label>
+                    <input type="radio" asp-for="Gender" id="genderFemale" value="Female" /> <label for="genderFemale">Female</label>
+                </div>
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+
+            <!-- DOB -->
+            <div class="form-group">
+                <label asp-for="DOB" class="control-label">DOB <span class="text-danger">*</span></label>
+                <input asp-for="DOB" class="form-control" id="dob" type="date" autocomplete="off" />
+                <span asp-validation-for="DOB" class="text-danger"></span>
+            </div>
+
+            <!--HIDDEN FIELD FOR DROPDOWN APPLYING FOR client-side validation-->
+            <div class="form-group">
+                <div>
+                    <input asp-for="DepartmentId" class="form-control"
+                           id="selectedDepartmentId" type="hidden" />
+                </div>
+
+                <!-- Department Dropdown -->
+                <div class="form-group">
+                    <label asp-for="DepartmentId" class="control-label">Department <span class="text-danger">*</span></label>
+                    <select asp-for="DepartmentId" id="departmentList" class="form-control">
+                        <option value="">--- Select Department ---</option>
+                        @foreach (var department in ViewBag.Departments)
+                        {
+                            <option value="@department.DepartmentId">@department.DepartmentName</option>
+                        }
+                    </select>
+                    <span asp-validation-for="DepartmentId" class="text-danger"></span>
+                </div>
+
+                <!-- IsActive Checkbox -->
+                <div class="form-group form-check">
+
+                    <input asp-for="IsActive" class="form-check-input" checked />
+
+                    <label asp-for="IsActive" class="form-check-label">In Service</label>"
+                </div>
+
+
+
+                <!-- Submit -->
+                <div class="form-group">
+                    <input type="submit" value="Update" id="btnSave" class="btn btn-primary" />
+                </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+            //departmentId ---departmentList--change
+        document.getElementById('departmentList').addEventListener('change', function(){
+            var selectedDeptId = this.value;
+            //assign to hidden field
+            document.getElementById('selectedDepartmentId').value =selectedDeptId;
+
+        });
+    </script>
+}
