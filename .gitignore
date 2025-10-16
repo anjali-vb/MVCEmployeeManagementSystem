@@ -1,0 +1,85 @@
+# Visual Studio / .NET common ignores
+.vs/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build outputs
+bin/
+obj/
+out/
+artifacts/
+
+# Publish outputs
+publish/
+*.Publish.xml
+*.publishsettings
+
+# NuGet
+*.nupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+*.DotSettings.user
+
+# Resharper
+_ReSharper*/
+*.DotSettings.user
+
+# IIS Express / local web server
+/.vs/
+IISExpress/
+iisexpress/
+
+# Debug / crash / log files
+*.log
+*.stackdump
+
+# Database files
+*.mdf
+*.ldf
+
+# Test results / coverage
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+*.coverdata
+
+# NPM / Node / Yarn
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Client-side libraries (optional: if you restore with libman, keep lib files out of source)
+wwwroot/lib/
+
+# User secrets (local sensitive data)
+secrets.json
+appsettings.Development.json
+
+# Tooling / generated files
+*.vsix
+*.cache
+*.db
+*.sqlite
+
+# OS files
+Thumbs.db
+*.DS_Store
+
+# Rider caches and compiled binaries
+.idea/
+*.iml
+*.class
+*.war
+*.ear
